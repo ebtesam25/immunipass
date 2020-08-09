@@ -1,0 +1,13 @@
+{
+  "name": "app",
+  "displayName": "app",
+  "expo": {
+    "name": "app",
+    "slug": "app",
+    "scheme": "immunipass",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
