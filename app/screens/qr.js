@@ -11,6 +11,33 @@ export default class Qr extends Component {
      componentDidMount = () => {
         
      }
+     checkPermit(){
+      fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/getimmunopass', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "uid":"auth0|5f2f23987ee0f0003d8cb8c5",  
+          "type":"vaccine",   
+
+        })
+})
+    .then((response) => response.json())
+    .then((responseJson) => {
+       console.log(responseJson);
+       
+       if(responseJson.status=='denied'){
+        this.setState({permit:'Sorry, you are not allowed to enter this zone :('})
+       }
+       else{
+         this.props.navigation.navigate('Face')
+       }
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+     }
     render() {
         return (
         <View style={styles.container}>
@@ -20,8 +47,8 @@ export default class Qr extends Component {
             backgroundColor='#ffffff'
             color='#6ed48f'
           />
-          <Text style={styles.login} onPress={()=>this.props.navigation.navigate('Face')}>Next</Text>
-          <Text style={styles.permit}>Sorry, you are not allowed to enter this zone :(</Text>
+          <Text style={styles.login} onPress={()=>this.checkPermit()}>Next</Text>
+          <Text style={styles.permit}  >{this.state.permit}</Text>
         </View>
         );
     }

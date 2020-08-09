@@ -9,7 +9,7 @@ let customFonts  = {
   'Gadugi': require('../assets/fonts/gadugi.ttf'),
   'Gadugi B': require('../assets/fonts/gadugib.ttf'),
 };
-export default class Splash extends React.Component  {
+export default class Clerk extends React.Component  {
 
   state = {
     fontsLoaded: false,
@@ -69,10 +69,10 @@ _signWithAuth0 = async () => {
     <View style={styles.container}>
          
 
-      <Image source={require('../assets/img/logo.png')} style={styles.header}></Image>
-      <Text style={styles.welcome} onPress={() => this.props.navigation.navigate('Options')}>Welcome!</Text>
-      <Text style={styles.login} onPress={() => this.props.navigation.navigate('Clerk')}>Clerk</Text>
-      <Text style={styles.reg} onPress={() => this.props.navigation.navigate('User')}>User</Text>
+      <Image source={require('../assets/img/clerk.png')} style={styles.header}></Image>
+      <Text style={styles.welcome} onPress={() => this.props.navigation.navigate('Scan')}>Welcome!</Text>
+      <Text style={styles.login} onPress={() => this._loginWithAuth0()}>Login</Text>
+      <Text style={styles.reg} onPress={() => this._signWithAuth0()}>Register</Text>
     </View>
     );
     }
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#FFF'
   },
   header:{
-    height:'50%',
-    width:'50%',
+    height:'55%',
+    width:'75%',
     resizeMode:'contain',
     alignSelf:'center'
   },

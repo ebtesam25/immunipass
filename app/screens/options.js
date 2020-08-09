@@ -35,6 +35,7 @@ export default class Options extends React.Component  {
       <Image source={require('../assets/img/distance.png')} style={styles.header}></Image>
       <Text style={styles.welcome} onPress={() => this.props.navigation.navigate('TheMap')}>Welcome!</Text>
       <Text style={styles.login} onPress={() => this.props.navigation.navigate('Qr')}>Checkin</Text>
+      <Text style={styles.air} onPress={() => this.props.navigation.navigate('Air')}>Air Quality</Text>
       <Text style={styles.reg} onPress={() => this.props.navigation.navigate('TheMap')}>Immunization</Text>
     </View>
     );
@@ -79,7 +80,23 @@ const styles = StyleSheet.create({
     color:'#FFF',
     color:'#FFF',
     borderRadius:10,
-    marginTop:'30%'
+    marginTop:'25%'
+
+  },
+  air:{
+    fontFamily:'Gadugi B',
+    fontSize:30,
+    backgroundColor:'#85e5a0',
+    width:'80%',
+    alignSelf:'center',
+    height:'10%',
+    textAlignVertical:'center',
+    textAlign:'center',
+    fontWeight:"200",
+    color:'#FFF',
+    color:'#FFF',
+    borderRadius:10,
+    marginTop:'3%'
 
   },
   reg:{
