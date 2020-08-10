@@ -38,6 +38,6 @@ In order to build our system, we used an assortment of technologies and platform
 * We used expo to create the react native app. Run `npm i` and either `expo start` or `npm start`
 * Run `python maps_data.py` to start the server for the maps feature and nearby immunization center retrivals
 * Open `main.html` for cough detection
-* Open `compare_face.py` for facial recognition and encrpytion functions
+* Open `compare_face.py` for facial recognition and encryption functions
 * Run `face.py` for mask detection
 
