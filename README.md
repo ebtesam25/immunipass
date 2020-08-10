@@ -1,5 +1,5 @@
 # ImmuniPass
-A standardised and digitized immunisation verification system to make public areas safe, post COVID-19 immunisation.
+A standardised and digitized immunization verification system to make public areas safe, post COVID-19 immunization.
 
 ## About
 The COVID-19 vaccines are estimated to arrive around three years from now, when the world will be completely shattered by the pandemic. When public areas start going back to normal, there will be complete chaos as the vaccines would have just started shipping. There would be no way to know who is immunized and who is not. To solve this problem, **we propose ImmuniPass: A standardized digital verification system for identifying immunized individuals in public areas such as malls, restaurants, airports etc. **
@@ -36,8 +36,8 @@ In order to build our system, we used an assortment of technologies and platform
 
 ## How to use it
 * We used expo to create the react native app. Run `npm i` and either `expo start` or `npm start`
-* 'python maps_data.py' for starting the maps server
-* main.html for cough detection
-* compare_face.py for face ID and encrpytion functions
-* face.py for mask detection
+* Run `python maps_data.py` to start the server for the maps feature and nearby immunization center retrivals
+* Open `main.html` for cough detection
+* Open `compare_face.py` for facial recognition and encrpytion functions
+* Run `face.py` for mask detection
 
