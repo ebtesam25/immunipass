@@ -39,7 +39,7 @@
         // 1. A callback function that is invoked anytime a word is recognized.
         // 2. A configuration object with adjustable fields
         
-        
+        var k = 0;
         recognizer.listen(result => {
             const scores = result.scores; // probability of prediction for each class
             // render the probability scores per class
