@@ -35,4 +35,9 @@ In order to build our system, we used an assortment of technologies and platform
 * **Digital Ocean** to host the flask backend for the nearby immunization centers retrieval
 
 ## How to use it
+* Using expo to run the react native app
+* 'python maps_data.py' for starting the maps server
+* main.html for cough detection
+* compare_face.py for face ID and encrpytion functions
+* face.py for mask detection
 
