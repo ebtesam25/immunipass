@@ -38,7 +38,7 @@
         // listen() takes two arguments:
         // 1. A callback function that is invoked anytime a word is recognized.
         // 2. A configuration object with adjustable fields
-        var k = 0;
+        
         
         recognizer.listen(result => {
             const scores = result.scores; // probability of prediction for each class
@@ -51,16 +51,9 @@
                 
             }
             if (result.scores[0] <= result.scores[1]){
-                k += 1;
-            }
-            else{
-                k = 0;
-            }
-
-            if(k >= 9){
                 console.log("Cough Detected");
-                k = 0;
             }
+           
             
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
