@@ -1,11 +1,12 @@
 import face_recognition
-
+import requests
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
 from builtins import bytes
 import base64
 from Crypto import Random
 import numpy as np
+import azurefestorage
 
 def encrypt(string1, password1):
     """
@@ -77,6 +78,24 @@ def save_encoding(image_path, txt_filename, key):
     
     f.write(final)
 
+
+def save_encoding_cloud(image_path, txt_filename, key):
+    image = face_recognition.load_image_file(image_path)
+    encoding = face_recognition.face_encodings(image)[0]
+
+    # f = open(txt_filename, 'wb')
+    final = ""
+    for i in encoding:
+        final += str(i) + " "
+    final = encrypt(final, key)
+    
+    azurefestorage.store_embedding(final, txt_filename)
+
+
+    # f.write(final)
+
+
+
 def load_and_compare(image_path, txt_filename, key):
     
 
@@ -86,8 +105,39 @@ def load_and_compare(image_path, txt_filename, key):
     kk = np.fromstring(k, dtype=float, sep=' ')
     return compare(kk, image_path)
 
-# save_encoding("train.jpg", "train.txt", "changethispassword")
-# print(load_and_compare("test1.jpg", "train.txt", "changethispassword"))
-# print(load_and_compare("test.jpg", "train.txt", "changethispassword"))
+
+def load_and_compare_cloud(image_path, txt_filename, key):
+    
+    em = azurefestorage.get_embedding(txt_filename)
+
+    # f = open(txt_filename, 'rb')
+    
+    # k = decrypt(f.read(), key)
+
+    k = decrypt(em, key)
+
+    kk = np.fromstring(k, dtype=float, sep=' ')
+    return compare(kk, image_path)
+
+
+def downloadpic(pic_url):
+    
+
+    with open('test.jpg', 'wb') as handle:
+            response = requests.get(pic_url, stream=True)
+
+            if not response.ok:
+                print (response)
+
+            for block in response.iter_content(1024):
+                if not block:
+                    break
+
+                handle.write(block)
+
+
+# save_encoding_cloud("train.jpg", "train.txt", "changethispassword")
+# print(load_and_compare_cloud("test1.jpg", "train.txt", "changethispassword"))
+# print(load_and_compare_cloud("test.jpg", "train.txt", "changethispassword"))
 
 
