@@ -72,7 +72,7 @@ export default class Face extends React.Component  {
               console.log(pUrl);
               x=1;
           
-            let labelcontent=await fetch('http://feed02313b0c.ngrok.io/textify', {
+            let labelcontent=await fetch('http://feed02313b0c.ngrok.io/facerec', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

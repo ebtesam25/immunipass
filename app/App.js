@@ -9,7 +9,10 @@ import Details from './screens/details';
 import Face from './screens/face';
 import Options from './screens/options';
 import Qr from './screens/qr';
-
+import User from './screens/user';
+import Clerk from './screens/clerk';
+import Air from './screens/air';
+import Scan from './screens/scan';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +46,21 @@ function MyStack() {
         options={{ headerShown: false}} 
       />
       <Stack.Screen 
+        name="User" 
+        component={User} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Clerk" 
+        component={Clerk} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Air" 
+        component={Air} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
         name="TheMap" 
         component={TheMap} 
         options={{ headerShown: false}} 
@@ -55,6 +73,11 @@ function MyStack() {
        <Stack.Screen 
         name="Qr" 
         component={Qr} 
+        options={{ headerShown: false}} 
+      />
+      <Stack.Screen 
+        name="Scan" 
+        component={Scan} 
         options={{ headerShown: false}} 
       />
       
